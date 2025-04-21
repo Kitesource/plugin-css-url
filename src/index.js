@@ -173,7 +173,7 @@ function handleOptions({
 // - callback: 回调函数，当找到匹配的 URL 时会被调用，接收两个参数：URL 的相对路径和包含该 URL 的节点。
 function cycleFun(nodes,callback) {
     // 过滤出节点列表中包含 URL 的节点，使用 startUrlReg 和 startUrlReg2 正则表达式进行匹配。
-    if (nodes && nodes.length > 0) {
+    if (nodes && nodes.length) {
         console.log('filter2', nodes);
         const urlList = nodes.filter(item=>item.value && (item.value.match(startUrlReg) || item.value.match(startUrlReg2)))
         // 遍历包含 URL 的节点列表
