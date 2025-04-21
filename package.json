@@ -5,11 +5,13 @@
     "main": "dist/index.js",
     "module": "dist/index.es.js",
     "author": "gw",
+    "license": "MIT",
     "scripts": {
         "build": "rollup -c",
         "prepublishOnly": "yarn build"
     },
     "publishConfig": {
+        "access": "public",
         "registry": "https://registry.npmjs.org/"
     },
     "files": [
