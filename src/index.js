@@ -108,8 +108,6 @@ function handleOptions({
 
     // 获取 CSS 语法树的所有节点
     const nodes = root.nodes
-    // 输出nodes到文件
-    writeFileSync('nodes.json', JSON.stringify(nodes, null, 2));
     
     // 存储需要删除的节点的索引
     const deleteNodes = [];
@@ -155,9 +153,7 @@ function handleOptions({
        
 
     }
-    // 过滤掉需要删除的节点
-    console.log('filter1', root.nodes);
-    
+    // 过滤掉需要删除的节点    
     root.nodes = root.nodes.filter((item,index)=>!deleteNodes.includes(index))
 
 
@@ -174,7 +170,6 @@ function handleOptions({
 function cycleFun(nodes,callback) {
     // 过滤出节点列表中包含 URL 的节点，使用 startUrlReg 和 startUrlReg2 正则表达式进行匹配。
     if (nodes && nodes.length) {
-        console.log('filter2', nodes);
         const urlList = nodes.filter(item=>item.value && (item.value.match(startUrlReg) || item.value.match(startUrlReg2)))
         // 遍历包含 URL 的节点列表
         urlList.forEach(item=>{
